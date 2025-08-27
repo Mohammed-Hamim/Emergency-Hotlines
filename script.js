@@ -1,4 +1,53 @@
-// call history btn functiontality
+// function for increasing heart click count 
+function increaseHeartCount(id) {
+    const heartCount = document.getElementById(id);
+    let heartCountValue = parseInt(heartCount.innerText);
+    heartCountValue++;
+    heartCount.innerText = heartCountValue;
+    
+
+}
+// heart icon count 
+document.getElementById('heart-icon1')
+    .addEventListener('click', function () {
+        increaseHeartCount('heart-number')
+    })
+document.getElementById('heart-icon2')
+    .addEventListener('click', function () {
+        increaseHeartCount('heart-number')
+    })
+document.getElementById('heart-icon3')
+    .addEventListener('click', function () {
+        increaseHeartCount('heart-number')
+    })
+document.getElementById('heart-icon4')
+    .addEventListener('click', function () {
+        increaseHeartCount('heart-number')
+    })
+document.getElementById('heart-icon5')
+    .addEventListener('click', function () {
+        increaseHeartCount('heart-number')
+    })
+document.getElementById('heart-icon6')
+    .addEventListener('click', function () {
+        increaseHeartCount('heart-number')
+    })
+document.getElementById('heart-icon7')
+    .addEventListener('click', function () {
+        increaseHeartCount('heart-number')
+    })
+document.getElementById('heart-icon8')
+    .addEventListener('click', function () {
+        increaseHeartCount('heart-number')
+    })
+document.getElementById('heart-icon9')
+    .addEventListener('click', function () {
+        increaseHeartCount('heart-number')
+    })
+
+
+
+// call history btn functionality
 document.getElementById('call-history-btn')
     .addEventListener('click', function () {
         console.log("btn clicked")
@@ -89,5 +138,16 @@ document.getElementById('call-btn9')
     .addEventListener('click', function () {
         callNow('coin-number', 'service-name9', 'railway-helpline')
     })
+
+// function for increasing copy button  click count 
+function increaseHeartCount(id) {
+    const copyClickCount = document.getElementById(id);
+    let copyClickCountValue = parseInt(copyClickCount.innerText);
+    copyClickCountValue++;
+    copyClickCount.innerText = copyClickCountValue;
+    console.log(heartCountValue)
+
+}
+
 
 
