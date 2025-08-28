@@ -46,6 +46,7 @@ document.getElementById('heart-icon9')
     })
 
 
+/* ******************toggle functionality only for mobile starts************* */
 
 // call history btn functionality
 document.getElementById('call-history-btn')
@@ -62,6 +63,8 @@ document.getElementById('back-btn')
         document.getElementById('call-history').style.display = 'none';
     })
 
+/* ******************toggle functionality only for mobile ends************* */
+
 // function for getting service name and number 
 
 function getServiceName(id) {
@@ -77,41 +80,20 @@ function getServiceNum(id) {
     return serviceNumValue;
 }
 
-
-// calling and alert and coin cut function
-function callNow(id, name, num) {
-    const serviceName = getServiceName(name);
-    const serviceNumber = getServiceNum(num);
-    const availableCoin = document.getElementById(id);
-    const availableCoinValueNum = parseInt(availableCoin.innerText);
-    if (availableCoinValueNum >= 20) {
-        alert('📞 calling ' + serviceName + " " + serviceNumber);
-    }
-    else {
-        alert("You do not have enough coin. At least 20 coin need for call");
-        return;
-    }
-
-    const newAvailableCoinValueNum = availableCoinValueNum - 20;
-    document.getElementById('coin-number').innerText = newAvailableCoinValueNum;
-
-}
-
-//  // function for creating dynamic call history
+// function for creating dynamic call history
 
 // variable for saving call data
-const callData = [];
+let callData = [];
 
 // dynamic element creator for showing call data
 function dynamicElementCreator() {
     const callHistoryContainer = document.getElementById('call-history-container');
-    callHistoryContainer.innerText = '';
-    console.log(callHistoryContainer)
+    callHistoryContainer.innerHTML = '';
+
     for (const data of callData) {
         const div = document.createElement('div');
-        console.log(div)
         div.innerHTML = `
-            <div class="flex justify-between py-3 items-center mt-4 bg-gray-50 rounded-lg">
+            <div class="flex dynamicElement  justify-between py-3 px-2 items-center mt-4 bg-gray-50 rounded-lg">
                     <div>
                         <h2 class="font-bold text-[18px]">${data.name}</h2>
                         <p>${data.number}</p>
@@ -123,12 +105,12 @@ function dynamicElementCreator() {
     }
 }
 
-// function for getting call title and number 
 
+//function for getting calling data 
 function getCallTitleAndNumber(title, helpline) {
     const getCallTitle = document.getElementById(title).innerText;
     const getCallNum = document.getElementById(helpline).innerText;
-    console.log(getCallTitle, getCallNum)
+
     const data = {
         name: getCallTitle,
         number: getCallNum,
@@ -137,64 +119,92 @@ function getCallTitleAndNumber(title, helpline) {
     callData.push(data);
 }
 
+// calling and alert and coin cut function
+function callNow(id, name, num, title, helpline) {
+    const serviceName = getServiceName(name);
+    const serviceNumber = getServiceNum(num);
+    const availableCoin = document.getElementById(id);
+    const availableCoinValueNum = parseInt(availableCoin.innerText);
 
+    if (availableCoinValueNum >= 20) {
+        alert('📞 calling ' + serviceName + " " + serviceNumber);
+        const newAvailableCoinValueNum = availableCoinValueNum - 20;
+        document.getElementById('coin-number').innerText = newAvailableCoinValueNum;
 
+        getCallTitleAndNumber(title, helpline);
+        dynamicElementCreator();
+    }
+    else {
+        alert("You do not have enough coin. At least 20 coin need for call");
+        return;
+    }
+}
+
+// clear call history button
+document.getElementById('clear-history-btn')
+    .addEventListener('click', function () {
+        const callHistoryContainer = document.getElementById('call-history-container');
+        callHistoryContainer.innerHTML = "";
+
+        callData = [];
+
+    })
 
 // click evenListener call button functionality
 document.getElementById('call-btn1')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name1', 'emergency-helpline');
-        getCallTitleAndNumber("serviceTitle1", "emergency-helpline");
-        dynamicElementCreator()
+        callNow('coin-number', 'service-name1', 'emergency-helpline', "serviceTitle1", 'emergency-helpline');
+
     })
 
 document.getElementById('call-btn2')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name2', 'police-helpline');
-        getCallTitleAndNumber("serviceTitle2", "police-helpline");
-        dynamicElementCreator()
+        callNow('coin-number', 'service-name2', 'police-helpline',
+            "serviceTitle2", "police-helpline"
+        );
+
     })
 document.getElementById('call-btn3')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name3', 'fire-service-helpline');
-        getCallTitleAndNumber("serviceTitle3", "fire-service-helpline");
-        dynamicElementCreator()
+        callNow('coin-number', 'service-name3', 'fire-service-helpline'
+            , "serviceTitle3", "fire-service-helpline"
+        );
+
     })
 document.getElementById('call-btn4')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name4', 'ambulance-helpline');
-        getCallTitleAndNumber("serviceTitle4", "ambulance-helpline");
-        dynamicElementCreator()
+        callNow('coin-number', 'service-name4', 'ambulance-helpline',
+            "serviceTitle4", "ambulance-helpline");
+
     })
 document.getElementById('call-btn5')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name5', 'womenChild-helpline');
-        getCallTitleAndNumber("serviceTitle5", "womenChild-helpline");
-        dynamicElementCreator()
+        callNow('coin-number', 'service-name5', 'womenChild-helpline'
+            , "serviceTitle5", "womenChild-helpline"
+        );
+
     })
 document.getElementById('call-btn6')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name6', 'anti-corruption-helpline');
-        getCallTitleAndNumber("serviceTitle6", "anti-corruption-helpline");
-        dynamicElementCreator()
+        callNow('coin-number', 'service-name6', 'anti-corruption-helpline'
+            , "serviceTitle6", "anti-corruption-helpline"
+        );
+
     })
 document.getElementById('call-btn7')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name7', 'electricity-helpline');
-        getCallTitleAndNumber("serviceTitle7", "electricity-helpline");
-        dynamicElementCreator()
+        callNow('coin-number', 'service-name7', 'electricity-helpline', "serviceTitle7", "electricity-helpline");
+
     })
 document.getElementById('call-btn8')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name8', 'brac-helpline');
-        getCallTitleAndNumber("serviceTitle8", "brac-helpline");
-        dynamicElementCreator()
+        callNow('coin-number', 'service-name8', 'brac-helpline', "serviceTitle8", "brac-helpline");
+
     })
 document.getElementById('call-btn9')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name9', 'railway-helpline');
-        getCallTitleAndNumber("serviceTitle9", "railway-helpline");
-        dynamicElementCreator()
+        callNow('coin-number', 'service-name9', 'railway-helpline', "serviceTitle9", "railway-helpline");
+
     })
 
 
