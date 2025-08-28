@@ -7,25 +7,31 @@
  Answer : The differences between above selectors are menttioned below:
    
    i) getElementById():
+   
       1. selects a single element by id and id must be unique.
       2. returns single element, if not found returns null.
          
    ii) getElementsClassName():
+   
       1. selects all elements containing the same class name.
       2. returns a HTMLCollection of elements.
          
    iii) getElementsClassNa():
+   
       1. selects the first element matching the specific CSS selector like #id, .class, tag, div etc.
       2.returns single element, if not found returns null.
 
    iv) getElementsClassNa():
+   
       1. selects all element matching the specific CSS selector.
       2.returns Nodelist of elements.
 
 2. How do you **create and insert a new element into the DOM**?
 
    Answer: I create and and insert a new element into the DOM using document.createElement() method and appendChild() method.
+   
     For example;
+   
        <!DOCTYPE html>
             <html lang="en">
              <head>
@@ -46,18 +52,20 @@
           </html>
 
 
-4. What is **Event Bubbling** and how does it work?
+3. What is **Event Bubbling** and how does it work?
  
   Answer: Event Bubbling is a process of event propagation. In this process event bubbles up the DOM tree,
    from the target Element up to the window. It is a default behaviour of browser.
 
 **   How it works:**
+
      Suppose there is three nested html elements
            1. A <div> 
            2. A <p> inside the <div> as child  of div
            3. A <button> inside the <p> as child  of p
    
    IF someone click on the <button> following events will occur.
+   
      1. Target Event : First, the click event will be triggered on the <button>
      2. Bubbling Starts: Then the event will starts to bubble up to its parent <p>
      3. Propagation to parents: Next, the event will bubbles from <p> to <div>
@@ -67,12 +75,15 @@
    
 
 
-5. What is **Event Delegation** in JavaScript? Why is it useful?
+
+
+4. What is **Event Delegation** in JavaScript? Why is it useful?
    
    Answer: In javaScript, Event delegation is a technique for attaching a single event listener to
     a parent element instead of adding individual event listeners to each child element.
 
     ** Why is Event Delegation Useful**
+   
     1. Event delegation can improve the performance by adding fewer event listeners, consumming less memory
     2. It helps us to Simply code.
     3. When new elements are added to the parent after the page has loaded,
@@ -80,20 +91,26 @@
     
 
 
-7. What is the difference between **preventDefault() and stopPropagation()** methods?
+5. What is the difference between **preventDefault() and stopPropagation()** methods?
 
    Answer: stopPropagation() and preventDefault() methods help us to manage event behaviour.
 
    The differences between them are below:
 
     preventDefault():
+   
     1.	Prevents the default browser action.
+
     2.	Cancels the event's inherent behavior.
+    
     3.	Stops the default action.
     
   	stopPropagation():
+   
     1.	Stops the event from traveling to other elements.
+
     2.	Controls the flow of the event through the DOM.
+
     3.	Does not stop the default action..
     
 
