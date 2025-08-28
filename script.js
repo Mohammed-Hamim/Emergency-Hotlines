@@ -139,6 +139,35 @@ document.getElementById('call-btn9')
         callNow('coin-number', 'service-name9', 'railway-helpline');
     })
 
+//  // function for creating dynamic call history
+
+//     const callData = [];
+
+//     function getCallNamAndNuber(){
+        
+//     }
+
+//     document.getElementById('call-btn1')
+//     .addEventListener('click', function(){
+//         const getCallName = document.getElementById('serviceTitle').innerText;
+//         const getCallNum = document.getElementById('emergency-helpline').innerText;
+//         console.log(getCallName, getCallNum)
+//         const data = {
+//             name: getCallName,
+//             number: getCallNum,
+//             date: new Date().toLocaleTimeString()
+//         }
+//     callData.push(data);
+//        console.log(callData)
+//     })
+
+
+
+
+
+
+
+
 // function for increasing copy button  click count 
 function increaseHeartCount(id) {
     const copyClickCount = document.getElementById(id);
@@ -149,41 +178,62 @@ function increaseHeartCount(id) {
 
 }
 
+// function for copying number 
+function copyNumber(id) {
+    const copyText = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(copyText);
+    alert('The number is copied successfully: ' + copyText)
+}
+
+
+
 // functionality of copy btn click 
 document.getElementById('copyBtn-1')
     .addEventListener('click', function () {
         increaseHeartCount('copy-number');
+        copyNumber('emergency-helpline')
     })
 document.getElementById('copyBtn-2')
     .addEventListener('click', function () {
         increaseHeartCount('copy-number');
+        copyNumber('ambulance-helpline');
+        copyNumber('police-helpline');
     })
 document.getElementById('copyBtn-3')
     .addEventListener('click', function () {
         increaseHeartCount('copy-number');
+        copyNumber('fire-service-helpline');
     })
 document.getElementById('copyBtn-4')
     .addEventListener('click', function () {
         increaseHeartCount('copy-number');
+        copyNumber('ambulance-helpline');
     })
 document.getElementById('copyBtn-5')
     .addEventListener('click', function () {
         increaseHeartCount('copy-number');
+        copyNumber('womenChild-helpline');
     })
 document.getElementById('copyBtn-6')
     .addEventListener('click', function () {
         increaseHeartCount('copy-number');
+        copyNumber('anti-corruption-helpline');
     })
 document.getElementById('copyBtn-7')
     .addEventListener('click', function () {
         increaseHeartCount('copy-number');
+        copyNumber('electricity-helpline');
     })
 document.getElementById('copyBtn-8')
     .addEventListener('click', function () {
         increaseHeartCount('copy-number');
+        copyNumber('brac-helpline');
     })
 document.getElementById('copyBtn-9')
     .addEventListener('click', function () {
         increaseHeartCount('copy-number');
+        copyNumber('railway-helpline');
     })
 
+
+   
