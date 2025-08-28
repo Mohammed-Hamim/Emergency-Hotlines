@@ -4,10 +4,10 @@ function increaseHeartCount(id) {
     let heartCountValue = parseInt(heartCount.innerText);
     heartCountValue++;
     heartCount.innerText = heartCountValue;
-
-
 }
-// heart icon count 
+
+
+// heart icon count click evenListener functionality
 document.getElementById('heart-icon1')
     .addEventListener('click', function () {
         increaseHeartCount('heart-number')
@@ -77,9 +77,8 @@ function getServiceNum(id) {
     return serviceNumValue;
 }
 
-//
 
-// calling and alert function
+// calling and alert and coin cut function
 function callNow(id, name, num) {
     const serviceName = getServiceName(name);
     const serviceNumber = getServiceNum(num);
@@ -89,7 +88,7 @@ function callNow(id, name, num) {
         alert('📞 calling ' + serviceName + " " + serviceNumber);
     }
     else {
-        alert("You do not have enough coin. At least 20 coin needed for call");
+        alert("You do not have enough coin. At least 20 coin need for call");
         return;
     }
 
@@ -98,73 +97,105 @@ function callNow(id, name, num) {
 
 }
 
+//  // function for creating dynamic call history
+
+// variable for saving call data
+const callData = [];
+
+// dynamic element creator for showing call data
+function dynamicElementCreator() {
+    const callHistoryContainer = document.getElementById('call-history-container');
+    callHistoryContainer.innerText = '';
+    console.log(callHistoryContainer)
+    for (const data of callData) {
+        const div = document.createElement('div');
+        console.log(div)
+        div.innerHTML = `
+            <div class="flex justify-between py-3 items-center mt-4 bg-gray-50 rounded-lg">
+                    <div>
+                        <h2 class="font-bold text-[18px]">${data.name}</h2>
+                        <p>${data.number}</p>
+                    </div>
+                    <p>${data.date}</p>
+                </div>
+            `
+        callHistoryContainer.appendChild(div)
+    }
+}
+
+// function for getting call title and number 
+
+function getCallTitleAndNumber(title, helpline) {
+    const getCallTitle = document.getElementById(title).innerText;
+    const getCallNum = document.getElementById(helpline).innerText;
+    console.log(getCallTitle, getCallNum)
+    const data = {
+        name: getCallTitle,
+        number: getCallNum,
+        date: new Date().toLocaleTimeString()
+    }
+    callData.push(data);
+}
 
 
-// call button functionality
+
+
+// click evenListener call button functionality
 document.getElementById('call-btn1')
     .addEventListener('click', function () {
         callNow('coin-number', 'service-name1', 'emergency-helpline');
+        getCallTitleAndNumber("serviceTitle1", "emergency-helpline");
+        dynamicElementCreator()
     })
 
 document.getElementById('call-btn2')
     .addEventListener('click', function () {
         callNow('coin-number', 'service-name2', 'police-helpline');
+        getCallTitleAndNumber("serviceTitle2", "police-helpline");
+        dynamicElementCreator()
     })
 document.getElementById('call-btn3')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name3', 'fire-service-helpline')
+        callNow('coin-number', 'service-name3', 'fire-service-helpline');
+        getCallTitleAndNumber("serviceTitle3", "fire-service-helpline");
+        dynamicElementCreator()
     })
 document.getElementById('call-btn4')
     .addEventListener('click', function () {
         callNow('coin-number', 'service-name4', 'ambulance-helpline');
+        getCallTitleAndNumber("serviceTitle4", "ambulance-helpline");
+        dynamicElementCreator()
     })
 document.getElementById('call-btn5')
     .addEventListener('click', function () {
         callNow('coin-number', 'service-name5', 'womenChild-helpline');
+        getCallTitleAndNumber("serviceTitle5", "womenChild-helpline");
+        dynamicElementCreator()
     })
 document.getElementById('call-btn6')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name6', 'anty-corruption-helpline');
+        callNow('coin-number', 'service-name6', 'anti-corruption-helpline');
+        getCallTitleAndNumber("serviceTitle6", "anti-corruption-helpline");
+        dynamicElementCreator()
     })
 document.getElementById('call-btn7')
     .addEventListener('click', function () {
         callNow('coin-number', 'service-name7', 'electricity-helpline');
+        getCallTitleAndNumber("serviceTitle7", "electricity-helpline");
+        dynamicElementCreator()
     })
 document.getElementById('call-btn8')
     .addEventListener('click', function () {
-        callNow('coin-number', 'service-name8', 'brac-helpline')
+        callNow('coin-number', 'service-name8', 'brac-helpline');
+        getCallTitleAndNumber("serviceTitle8", "brac-helpline");
+        dynamicElementCreator()
     })
 document.getElementById('call-btn9')
     .addEventListener('click', function () {
         callNow('coin-number', 'service-name9', 'railway-helpline');
+        getCallTitleAndNumber("serviceTitle9", "railway-helpline");
+        dynamicElementCreator()
     })
-
-//  // function for creating dynamic call history
-
-//     const callData = [];
-
-//     function getCallNamAndNuber(){
-        
-//     }
-
-//     document.getElementById('call-btn1')
-//     .addEventListener('click', function(){
-//         const getCallName = document.getElementById('serviceTitle').innerText;
-//         const getCallNum = document.getElementById('emergency-helpline').innerText;
-//         console.log(getCallName, getCallNum)
-//         const data = {
-//             name: getCallName,
-//             number: getCallNum,
-//             date: new Date().toLocaleTimeString()
-//         }
-//     callData.push(data);
-//        console.log(callData)
-//     })
-
-
-
-
-
 
 
 
@@ -174,8 +205,6 @@ function increaseHeartCount(id) {
     let copyClickCountValue = parseInt(copyClickCount.innerText);
     copyClickCountValue++;
     copyClickCount.innerText = copyClickCountValue;
-
-
 }
 
 // function for copying number 
@@ -187,7 +216,7 @@ function copyNumber(id) {
 
 
 
-// functionality of copy btn click 
+//click evenListener  functionality of copy btn click 
 document.getElementById('copyBtn-1')
     .addEventListener('click', function () {
         increaseHeartCount('copy-number');
@@ -236,4 +265,3 @@ document.getElementById('copyBtn-9')
     })
 
 
-   
