@@ -4,7 +4,7 @@
 
 1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
  
- Answer : The differences between above selectors are menttioned below:
+ Answer : The differences between above selectors are mentioned below:
    
    i) getElementById():
    
@@ -24,7 +24,7 @@
    iv) getElementsClassNa():
    
       1. selects all element matching the specific CSS selector.
-      2.returns Nodelist of elements.
+      2.returns NodeList of elements.
 
 2. How do you **create and insert a new element into the DOM**?
 
@@ -71,7 +71,7 @@
      3. Propagation to parents: Next, the event will bubbles from <p> to <div>
      4. Up to the top: This bubbling will be continued until the event reaches to <html>
 
-   **stopPropagation() metheod is used to stop event propagation**
+   **stopPropagation() method is used to stop event propagation**
    
 
 
@@ -84,7 +84,7 @@
 
     ** Why is Event Delegation Useful**
    
-    1. Event delegation can improve the performance by adding fewer event listeners, consumming less memory
+    1. Event delegation can improve the performance by adding fewer event listeners, consuming less memory
     2. It helps us to Simply code.
     3. When new elements are added to the parent after the page has loaded,
      the delegated event listener automatically works for them without any extra code.
